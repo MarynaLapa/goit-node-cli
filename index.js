@@ -1,11 +1,11 @@
 const { program } = require("commander");
-const contacts = require("./src/contacts");
+const contacts = require("./contacts");
 
 async function invokeAction({ action, id, name, email, phone }) {
     switch (action) {
         case "list":
             const contactsList = await contacts.listContacts();
-            return console.log('contactsList', contactsList)
+            return console.table(contactsList)
 
         case "get":
             const oneContact = await contacts.getContactById(id);
